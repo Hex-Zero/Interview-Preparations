@@ -6,48 +6,17 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Document</title>
     <script defer>
-      // function* generator(i) {
-      //   yield i;
-      //   yield i + 10;
-      // }
+      const luke = {
+        jedi: true,
+        age: 28
+      };
 
-      // const gen = generator(1);
-
-      // console.log(gen.next().value);
-      // // expected output: 10
-      // console.log(gen.next().value);
-      // // expected output: 20
-
-      // function* idMaker() {
-      //   var index = 0;
-      //   yield;
-      //   while (1) yield index++;
-      // }
-
-      // var gen = idMaker();
-
-      // console.log(gen.next().value); // 0
-      // console.log(gen.next().value); // 1
-      // console.log(gen.next(23)); // 2
-      // console.log(gen.next().value); // 3
-      // console.log(gen.next().value); // 3
-      // console.log(gen.next().value); // 3
-
-      function* logGenerator() {
-        console.log(0);
-        console.log(1, yield);
-        console.log(2, yield);
-        console.log(3, yield);
+      function getProp(prop) {
+        return luke[prop];
       }
 
-      var gen = logGenerator();
-
-      // the first call of next executes from the start of the function
-      // until the first yield statement
-      gen.next(); // 0
-      gen.next("pretzel"); // 1 pretzel
-      gen.next("california"); // 2 california
-      gen.next("mayonnaise"); // 3 mayonnaise
+      const isJedi = getProp("jedi");
+      console.log(isJedi);
     </script>
   </head>
   <body></body>
