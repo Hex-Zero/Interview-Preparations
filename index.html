@@ -18,17 +18,36 @@
       // console.log(gen.next().value);
       // // expected output: 20
 
-      function* idMaker() {
-        var index = 0;
-        while (true) yield index++;
+      // function* idMaker() {
+      //   var index = 0;
+      //   yield;
+      //   while (1) yield index++;
+      // }
+
+      // var gen = idMaker();
+
+      // console.log(gen.next().value); // 0
+      // console.log(gen.next().value); // 1
+      // console.log(gen.next(23)); // 2
+      // console.log(gen.next().value); // 3
+      // console.log(gen.next().value); // 3
+      // console.log(gen.next().value); // 3
+
+      function* logGenerator() {
+        console.log(0);
+        console.log(1, yield);
+        console.log(2, yield);
+        console.log(3, yield);
       }
 
-      var gen = idMaker();
+      var gen = logGenerator();
 
-      console.log(gen.next().value); // 0
-      console.log(gen.next().value); // 1
-      console.log(gen.next().value); // 2
-      console.log(gen.next().value); // 3
+      // the first call of next executes from the start of the function
+      // until the first yield statement
+      gen.next(); // 0
+      gen.next("pretzel"); // 1 pretzel
+      gen.next("california"); // 2 california
+      gen.next("mayonnaise"); // 3 mayonnaise
     </script>
   </head>
   <body></body>
