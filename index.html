@@ -5,9 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Document</title>
-    <script defer>
-      (() => {
-        // for (let i = 1; i < 101; i++) {
+  </head>
+  <body></body>
+  <script defer>
+    (() => {
+      for (let i = 0; i < 101; ) {
+        console.log((++i % 3 ? "" : "Fizz") + (i % 5 ? "" : "Bizz") || i);
+      }
+    })();
+  </script>
+</html>
+
+<!-- 
+  // for (let i = 1; i < 101; i++) {
         //   let r = "";
         //   i % 3 ? r : (r += "Fizz");
         //   i % 5 ? r : (r += "Buzz");
@@ -15,9 +25,4 @@
         //   console.log(r);
         // }
         for (let i = 0; i < 100; )
-          console.log((++i % 3 ? "" : "fizz") + (i % 5 ? "" : "buzz") || i);
-      })();
-    </script>
-  </head>
-  <body></body>
-</html>
+          console.log((++i % 3 ? "" : "fizz") + (i % 5 ? "" : "buzz") || i); -->
