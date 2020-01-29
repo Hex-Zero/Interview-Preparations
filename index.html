@@ -16,12 +16,12 @@
 
       newArr = arr.filter(node => node !== -1);
       console.log(newArr);
-
-      hasZero = arr.filter(node => node === 0);
-      console.log(hasZero);
-
-      if (arr.length > 1 && hasZero.length === 0)
+      let hasZero = false;
+      if (arr.length > 1)
         for (let i = 0; i < newArr.length; i++) {
+          if (newArr[i] !== 0) {
+            hasZero = true;
+          }
           if (i === 0) {
             left += newArr[0];
           }
@@ -32,7 +32,7 @@
 
       console.log(left);
 
-      if (left && left !== right) {
+      if (left && left !== right && !hasZero) {
         left > right ? (result += "Left") : (result += "Right");
       }
       return result;
