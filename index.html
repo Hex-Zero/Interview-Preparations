@@ -21,6 +21,7 @@
         for (let i = 0; i < newArr.length; i++) {
           if (newArr[i] !== 0) {
             hasZero = true;
+            i = newArr.length;
           }
           if (i === 0) {
             left += newArr[0];
