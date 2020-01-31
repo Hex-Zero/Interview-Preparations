@@ -8,38 +8,11 @@
   </head>
   <body></body>
   <script defer>
-    const solution = arr => {
-      // Type your solution here
-      let result = "";
-      let left = 0;
-      let right = 0;
-
-      newArr = arr.filter(node => node !== -1);
-      console.log(newArr);
-      let hasZero = false;
-      if (arr.length > 1)
-        for (let i = 0; i < newArr.length; i++) {
-          if (newArr[i] !== 0) {
-            hasZero = true;
-            i = newArr.length;
-          }
-          if (i === 0) {
-            left += newArr[0];
-          }
-          console.log(i % 2);
-
-          i % 2 ? (left += newArr[i]) : (right += newArr[i]);
-        }
-
-      console.log(left);
-
-      if (left && left !== right && !hasZero) {
-        left > right ? (result += "Left") : (result += "Right");
+    (() => {
+      for (let i = 0; i < 101; ) {
+        console.log((++i % 3 ? "" : "Fizz") + (i % 5 ? "" : "Bizz") || i);
       }
-      return result;
-    };
-    const arr = [1, 2, 3, 4, 0];
-    console.log(solution(arr));
+    })();
   </script>
 </html>
 
