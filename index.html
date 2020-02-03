@@ -8,36 +8,44 @@
   </head>
   <body></body>
   <script defer>
-    const polin = [3, 3, 3, 2, 2, 1, 1, 4, 4];
-    const notPolin = [3, 3, 3, 2, 2, 1, 1, 1, 4, 4];
+    const grid = [
+      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    ];
 
-    const couldBePolindrone = arr => {
-      let odds = 0;
-      let polindrone = true;
-      const countOdds = arr => {
-        count = 0;
-        const filtered = arr.filter(el => {
-          if (arr[0] === el) {
-            count++;
-            return false;
-          } else {
-            return true;
+    const drawX = arr => {
+      const arrCopy = [...arr];
+      let start = 0;
+      let end = arr.length - 1;
+
+      const next = arr => {
+        if (start <= end) {
+          arrCopy[start][start] = 1;
+          if (arrCopy[start][start] !== arrCopy[start][end]) {
+            arrCopy[start][end] = 1;
+            arrCopy[end][end] = 1;
+            arrCopy[end][start] = 1;
           }
-        });
-        if (count % 2) {
-          odds++;
-        }
-        if (odds > 1) {
-          polindrone = false;
-        } else if (filtered.length) {
-          countOdds(filtered);
+          start++;
+          end--;
+          next(arrCopy);
         }
       };
-
-      countOdds(arr);
-      return polindrone;
+      next(arrCopy);
+      return arrCopy;
     };
-    console.log(couldBePolindrone(polin));
+    console.log(drawX(grid));
   </script>
 </html>
 
