@@ -8,13 +8,22 @@
   </head>
   <body></body>
   <script defer>
-    const palindrome = [1, 4, 5, 4, 1];
+    const palindrome = [1, 4, 5, 5, 4, 1];
     const nonRalindrome = [1, 2, 3, 4, 5];
+
     const isPalindrome = arr => {
       let palindrome = true;
+      const sorted = [];
       const check = (front, back) => {
         if (palindrome && arr[front] === arr[back]) {
           if (front < back) {
+            if (sorted.length) {
+              if (sorted[0] < arr[front]) {
+                sorted.push(arr[front], arr[back]);
+              }
+            } else {
+              sorted.push(arr[front], arr[back]);
+            }
             palindrome = true;
             check((front += 1), (back -= 1));
           }
@@ -23,7 +32,7 @@
         }
       };
       check(0, arr.length - 1);
-      palindrome ? console.log("palindrome ") : console.log("Not Cool");
+      palindrome ? console.log("Cool " + sorted) : console.log("Not Cool");
     };
     isPalindrome(palindrome);
   </script>
