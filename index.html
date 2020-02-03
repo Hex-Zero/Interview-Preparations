@@ -8,12 +8,24 @@
   </head>
   <body></body>
   <script defer>
-    (() => {
-      let i = 0;
-      while (i < 100) {
-        console.log((++i % 3 ? "" : "Fizz") + (i % 5 ? "" : "Buzz") || i);
-      }
-    })();
+    const palindrome = [1, 4, 5, 4, 1];
+    const nonRalindrome = [1, 2, 3, 4, 5];
+    const isPalindrome = arr => {
+      let palindrome = true;
+      const check = (front, back) => {
+        if (palindrome && arr[front] === arr[back]) {
+          if (front < back) {
+            palindrome = true;
+            check((front += 1), (back -= 1));
+          }
+        } else {
+          palindrome = false;
+        }
+      };
+      check(0, arr.length - 1);
+      palindrome ? console.log("palindrome ") : console.log("Not Cool");
+    };
+    isPalindrome(palindrome);
   </script>
 </html>
 
