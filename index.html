@@ -8,33 +8,36 @@
   </head>
   <body></body>
   <script defer>
-    const palindrome = [1, 4, 5, 5, 4, 1];
-    const nonRalindrome = [1, 2, 3, 4, 5];
+    const polin = [3, 3, 3, 2, 2, 1, 1, 4, 4];
+    const notPolin = [3, 3, 3, 2, 2, 1, 1, 1, 4, 4];
 
-    const isPalindrome = arr => {
-      let palindrome = true;
-      const sorted = [];
-      const check = (front, back) => {
-        if (palindrome && arr[front] === arr[back]) {
-          if (front < back) {
-            if (sorted.length) {
-              if (sorted[0] < arr[front]) {
-                sorted.push(arr[front], arr[back]);
-              }
-            } else {
-              sorted.push(arr[front], arr[back]);
-            }
-            palindrome = true;
-            check((front += 1), (back -= 1));
+    const couldBePolindrone = arr => {
+      let odds = 0;
+      let polindrone = true;
+      const countOdds = arr => {
+        count = 0;
+        const filtered = arr.filter(el => {
+          if (arr[0] === el) {
+            count++;
+            return false;
+          } else {
+            return true;
           }
-        } else {
-          palindrome = false;
+        });
+        if (count % 2) {
+          odds++;
+        }
+        if (odds > 1) {
+          polindrone = false;
+        } else if (filtered.length) {
+          countOdds(filtered);
         }
       };
-      check(0, arr.length - 1);
-      palindrome ? console.log("Cool " + sorted) : console.log("Not Cool");
+
+      countOdds(arr);
+      return polindrone;
     };
-    isPalindrome(palindrome);
+    console.log(couldBePolindrone(polin));
   </script>
 </html>
 
