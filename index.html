@@ -7,46 +7,7 @@
     <title>Document</title>
   </head>
   <body></body>
-  <script defer>
-    const grid = [
-      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-    ];
-
-    const drawX = arr => {
-      const arrCopy = [...arr];
-      let start = 0;
-      let end = arr.length - 1;
-
-      const next = arr => {
-        if (start <= end) {
-          arrCopy[start][start] = 1;
-          if (arrCopy[start][start] !== arrCopy[start][end]) {
-            arrCopy[start][end] = 1;
-            arrCopy[end][end] = 1;
-            arrCopy[end][start] = 1;
-          }
-          start++;
-          end--;
-          next(arrCopy);
-        }
-      };
-      next(arrCopy);
-      return arrCopy;
-    };
-    console.log(drawX(grid));
-  </script>
+  <script defer></script>
 </html>
 
 <!-- 
